@@ -4,38 +4,51 @@
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
   font-family: var(--primary-font);
   font-size: var(--text-size-normal);
-  background-color: var(--primary-color);
-
-  /* TODO DELETE */
-  max-inline-size: 375px;
+  background-image: var(--header-bg-img);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .header {
-  background-image: var(--header-bg-img);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  padding: 10px;
+  block-size: 100vh;
+  display: grid;
+  grid-auto-rows: min-content 1fr 1fr 1fr min-content;
+}
+
+@media (width > 375px) {
+  .header {
+    padding: 20px;
+    grid-template-rows: min-content 1fr min-content 1fr;
+    /* grid-template-columns: auto auto 1fr auto; */
+  }
 }
 
 .decorated-zone {
-  position: relative;
-  padding: 10px;
 }
 
-.header__decoration {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto;
-  border-top: var(--accent-border);
-  border-right: var(--accent-border);
+.decoration {
+  --border: 1px solid var(--button-color);
+
+  margin-inline-start: auto;
+  border-inline-end: var(--border);
+  border-block-start: var(--border);
   inline-size: 25px;
   block-size: 25px;
 }
 
-.header__decoration::after {
+.decoration__details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.decoration__details::before {
   content: "";
+  display: block;
   border-radius: 50%;
   box-shadow: 0px 0px 4px var(--accent-color);
   background-color: var(--accent-color);
@@ -43,79 +56,88 @@
   block-size: 9px;
 }
 
-.header__decoration::before {
+.decoration__details::after {
   content: "Rec";
-  text-transform: uppercase;
   position: absolute;
-  inset-inline-end: 38px;
   color: var(--accent-color);
+  text-transform: uppercase;
+  inset-inline-end: 28px;
 }
 
 .header__theme-menu-list {
-  margin-top: 40px;
   display: grid;
   justify-content: end;
   gap: 10px;
+  margin-block-start: 40px;
 }
 
 .header__theme-menu-item {
 }
 
 .header__theme-menu-button {
-  border: none;
+  border: 1px solid transparent; /* text won't move when other "border" values will apply */
   padding: 0 13px;
-  color: var(--accent-color);
   font-family: var(--primary-font);
   font-weight: var(--normal-weight);
   font-size: var(--text-size-normal);
   font-style: normal;
-  line-height: 18px; /* 100% */
+  line-height: 1.125rem; /* 100% */
   text-transform: lowercase;
   background-color: transparent;
+  cursor: pointer;
   appearance: none;
   block-size: 26px;
+  color: var(--button-color);
 }
 
-.header__theme-menu-button:disabled {
-  outline: 1px solid var(--accent-color);
+.header__theme-menu-button:hover {
+  border: 1px solid var(--hover-color);
 }
 
-.header__logo {
-  margin-top: 65px;
-  text-transform: lowercase;
-  font-size: var(--text-size-title);
-  font-weight: var(--accent-weight);
-  text-shadow: 4px 4px 0 var(--accent-color);
+.header__theme-menu-button:focus-visible {
+  outline: none;
+  border-block-end: 1px solid var(--button-color);
+}
+
+.header__theme-menu-button_active {
+  pointer-events: none;
+  border: 1px solid var(--button-color);
+}
+
+.header__title {
+  margin-block-start: 65px;
   color: var(--title-color);
-  line-height: 82.5%; /* 95.7px */
+  font-weight: var(--bold-weight);
+  font-size: var(--text-size-title);
+  line-height: 5.98125rem; /* 95.7px */
+  text-transform: lowercase;
+  text-shadow: 4px 4px 0 var(--accent-color);
 }
 
 .header__tagline {
-  margin-top: 55px;
+  margin-block-start: 55px;
+  margin-block-end: 31px;
 }
 
 .title-decor {
-  background-color: var(--accent-color);
   width: 100%;
-  font-weight: var(--accent-weight);
-  color: var(--primary-color);
-  line-height: var(--accent-line-height);
+  color: var(--secondary-color);
+  font-weight: var(--bold-weight);
   font-size: var(--text-size-normal);
+  line-height: var(--accent-line-height);
+  background-color: var(--accent-color);
 }
 
-.header__empty-decoration {
-  margin-top: 31px;
-  inline-size: 25px;
-  block-size: 25px;
-  border-left: var(--accent-border);
-  border-bottom: var(--accent-border);
+.reflected {
+  margin: 0;
+  transform: scaleX(-1) scaleY(-1);
 }
 
 .content {
-  padding: 40px 10px 40px;
   display: flex;
-  gap: 50px;
   flex-direction: column;
+  gap: 50px;
+  padding: 40px 10px 40px;
 }
 
 .section {
@@ -129,7 +151,7 @@
 
 .question {
   color: var(--accent-color);
-  font-weight: var(--accent-weight);
+  font-weight: var(--bold-weight);
   font-size: var(--text-size-normal);
   line-height: var(--accent-line-height);
 }
@@ -146,7 +168,22 @@
 }
 
 .card__content {
-  color: var(--secondary-color);
+  color: var(--text-color);
+  line-height: 1.4625rem;
+}
+
+.link {
+  text-decoration: none;
+  text-shadow: 2px 1px 0 var(--accent-color);
+}
+
+.link:hover {
+  border-block-end: 1px solid var(--text-color);
+}
+
+.link:focus-visible {
+  outline: none;
+  border: 1px solid var(--text-color);
 }
 
 .section__compact {
@@ -157,10 +194,26 @@
 }
 
 .section__pictures {
-  gap: 10px;
   grid-auto-flow: dense;
+  gap: 10px;
 }
 
-.section__image {
-  width: 100%;
+.section__picture {
+  inline-size: 100%;
+}
+
+.footer {
+  display: grid;
+  grid-auto-rows: min-content 1fr;
+  padding: 10px;
+  block-size: 100vh;
+}
+
+.footer__title {
+  justify-self: center;
+  align-self: center;
+  color: var(--title-color);
+  font-size: var(--text-size-title);
+  text-transform: lowercase;
+  text-shadow: 2px 2px 0px var(--accent-color);
 }
