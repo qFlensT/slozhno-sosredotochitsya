@@ -1,9 +1,12 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+@media (width >= 768px) {
+  :root {
+    --padding: 20px;
+  }
+}
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-  --padding: 10px;
-  padding: var(--padding);
   font-family: var(--primary-font);
   font-size: var(--text-size-normal);
   background-image: var(--header-bg-img);
@@ -11,20 +14,27 @@
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+}
+
+.page > *:not(:first-child) {
+  margin-block-start: 40px;
+}
+
+@media (width >= 768px) {
+  .page > *:not(:first-child) {
+    margin-block-start: 60px;
+  }
 }
 
 .header {
-  block-size: calc(100vb - var(--padding) * 2);
+  padding: var(--padding);
+  block-size: 100vb;
   display: grid;
   grid-auto-rows: 1fr min-content 1fr;
   align-items: center;
   position: relative;
-}
-
-@media (width >= 768px) {
-  .page {
-    --padding: 20px;
-  }
 }
 
 .decorated-zone {
@@ -36,8 +46,8 @@
   content: "";
   --border: 1px solid var(--decoration-color);
   position: absolute;
-  inset-inline-end: 0;
-  inset-block-start: 0;
+  inset-inline-end: var(--padding);
+  inset-block-start: var(--padding);
   border-inline-end: var(--border);
   border-block-start: var(--border);
   inline-size: 25px;
@@ -46,15 +56,15 @@
 
 .decorated-zone::after {
   inset: unset;
-  inset-inline-start: 0;
-  inset-block-end: 0;
+  inset-inline-start: var(--padding);
+  inset-block-end: var(--padding);
   transform: scaleX(-1) scaleY(-1);
 }
 
 .decorated-zone__details {
   position: absolute;
-  inset-inline-end: 9px;
-  inset-block-start: 0;
+  inset-inline-end: calc(var(--padding) + 9px);
+  inset-block-start: var(--padding);
   color: var(--accent-color);
   text-transform: uppercase;
   display: flex;
@@ -91,9 +101,6 @@
   .header__theme-menu-list {
     flex-direction: row;
   }
-}
-
-.header__theme-menu-item {
 }
 
 .header__theme-menu-button {
@@ -159,17 +166,14 @@
 }
 
 .content {
-  --inner-padding: calc(40px + var(--padding));
-
   display: flex;
   flex-direction: column;
   gap: 50px;
-  padding: var(--inner-padding) 0;
+  padding: 0 var(--padding);
 }
 
 @media (width >= 768px) {
   .content {
-    --inner-padding: calc(60px + var(--padding));
     gap: 80px;
   }
 }
@@ -201,6 +205,7 @@
 @media (width >= 1024px) {
   .section__compact .card__list {
     grid-auto-flow: column;
+    grid-auto-columns: 1fr;
   }
 }
 
@@ -302,7 +307,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  block-size: calc(100vb - var(--padding) * 2);
+  block-size: 100vb;
+}
+
+@media (width >= 768px) {
+  .footer {
+  }
 }
 
 .footer__title {
