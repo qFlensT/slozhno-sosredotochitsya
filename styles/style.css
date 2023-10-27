@@ -190,6 +190,12 @@
   }
 }
 
+@media (width >= 1024px) {
+  .section__stretched {
+    grid-auto-columns: 32% 1fr; /* magic */
+  }
+}
+
 .question {
   color: var(--decoration-color);
   font-weight: var(--bold-weight);
