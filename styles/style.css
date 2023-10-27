@@ -73,11 +73,24 @@
   box-shadow: 0px 0px 4px #ff0070;
 }
 
+@media (width >= 1024px) {
+  .header__theme-menu {
+    align-self: start;
+    justify-self: center;
+  }
+}
+
 .header__theme-menu-list {
   display: flex;
   flex-direction: column;
   align-items: end;
   gap: 10px;
+}
+
+@media (width >= 1024px) {
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
 }
 
 .header__theme-menu-item {
@@ -116,7 +129,7 @@
 .header__title {
   color: var(--title-color);
   font-weight: var(--bold-weight);
-  font-size: var(--text-size-title);
+  font-size: var(--text-size-title-mobile);
   line-height: 5.98125rem; /* 95.7px */
   text-transform: lowercase;
   text-shadow: 4px 4px 0 var(--accent-color);
@@ -125,6 +138,7 @@
 @media (width >= 768px) {
   .header__title {
     transform: translateX(calc(0px - var(--padding)));
+    font-size: var(--text-size-title);
   }
 }
 
@@ -165,9 +179,6 @@
   gap: 20px;
 }
 
-.section__stretched {
-}
-
 @media (width >= 768px) {
   .section__stretched {
     grid-auto-flow: column;
@@ -176,17 +187,21 @@
 }
 
 .question {
-  color: var(--accent-color);
+  color: var(--decoration-color);
   font-weight: var(--bold-weight);
   font-size: var(--text-size-normal);
   line-height: var(--accent-line-height);
-  grid-area: "question";
 }
 
 .card__list {
   display: grid;
   gap: 20px;
-  grid-area: "card__list";
+}
+
+@media (width >= 1024px) {
+  .section__compact .card__list {
+    grid-auto-flow: column;
+  }
 }
 
 .card__list-item {
@@ -214,10 +229,6 @@
   border: 1px solid var(--text-color);
 }
 
-.section__compact {
-  display: grid;
-}
-
 @media (width >= 768px) {
   .section__compact {
     grid-template-columns: 1fr 2fr;
@@ -239,13 +250,22 @@
 
 @media (width >= 768px) {
   .section__gallery {
-    block-size: 823px;
+    gap: 20px;
+  }
+}
+
+.gallery {
+  gap: 10px;
+  display: grid;
+}
+
+@media (width >= 768px) {
+  .gallery {
     gap: 20px;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: min-content repeat(3, 1fr);
   }
 
-  .section__gallery .title-decor {
+  .gallery .title-decor {
     grid-column: 1 / -1;
   }
 }
@@ -258,6 +278,7 @@
   .section__image {
     block-size: 100%;
     object-fit: cover;
+    object-position: center;
   }
 
   .image__sunset {
@@ -286,7 +307,13 @@
 
 .footer__title {
   color: var(--title-color);
-  font-size: var(--text-size-title);
+  font-size: var(--text-size-title-mobile);
   text-transform: lowercase;
   text-shadow: 2px 2px 0px var(--accent-color);
+}
+
+@media (width >= 1024px) {
+  .footer__title {
+    font-size: var(--text-size-title);
+  }
 }

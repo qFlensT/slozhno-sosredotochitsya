@@ -13,7 +13,8 @@
   --decoration-color: #ff0070;
   --header-bg-img: url("../images/cover-image-dark.png");
   --primary-font: "IBM Plex mono", sans-serif;
-  --text-size-title: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  --text-size-title-mobile: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  --text-size-title: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   --text-size-normal: 1.125rem;
   --normal-weight: 400;
   --bold-weight: 700;
