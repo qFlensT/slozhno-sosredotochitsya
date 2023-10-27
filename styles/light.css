@@ -15,11 +15,10 @@
   --title-color: #ffc2e6;
   --text-color: #353430;
   --hover-color: #32312d66;
-  --button-color: #353430;
+  --decoration-color: #353430;
   --header-bg-img: url("../images/cover-image-light.png");
 
-  .decoration__details::before,
-  .decoration__details::after {
+  .decorated-zone__details {
     display: none;
   }
 }
@@ -33,12 +32,11 @@
     --title-color: #ffc2e6;
     --text-color: #353430;
     --hover-color: #32312d66;
-    --button-color: #353430;
+    --decoration-color: #353430;
     --header-bg-img: url("../images/cover-image-light.png");
   }
 
-  .decoration__details::before,
-  .decoration__details::after {
+  .decorated-zone__details {
     display: none;
   }
 }

@@ -10,7 +10,7 @@
   --title-color: #db00ff;
   --text-color: #f1b2ce;
   --hover-color: #ff007066;
-  --button-color: #ff0070;
+  --decoration-color: #ff0070;
   --header-bg-img: url("../images/cover-image-dark.png");
   --primary-font: "IBM Plex mono", sans-serif;
   --text-size-title: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
