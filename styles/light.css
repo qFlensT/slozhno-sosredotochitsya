@@ -21,10 +21,10 @@
   --shadow-title-mobile: 4px 4px 0px var(--color-accent);
 
   --image-background: url("../images/cover-image-light.png");
+}
 
-  .decorated-zone__details {
-    display: none;
-  }
+.page.theme_light .decorated-zone__details {
+  display: none;
 }
 
 @media (prefers-color-scheme: light) {
@@ -40,6 +40,9 @@
 
     --shadow-title: 4px 4px 0px #ff0070;
     --shadow-title-mobile: 4px 4px 0px var(--color-accent);
+
+    --shadow-footer: 2px 2px 0px #ff0070;
+    --shadow-footer-mobile: 2px 2px 0px #ff8dcb;
 
     --image-background: url("../images/cover-image-light.png");
   }

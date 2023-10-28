@@ -15,6 +15,9 @@
   --shadow-title: 4px 4px 0px var(--color-accent);
   --shadow-title-mobile: 4px 4px 0px var(--color-accent);
 
+  --shadow-footer: 2px 2px 0px #ff0070;
+  --shadow-footer-mobile: 2px 2px 0px #ff0070;
+
   --image-background: url("../images/cover-image-dark.png");
 
   --font-primary: "IBM Plex mono";
