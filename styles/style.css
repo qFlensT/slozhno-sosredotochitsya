@@ -37,6 +37,12 @@
   position: relative;
 }
 
+@media (width >= 1024px) {
+  .header {
+    align-items: start;
+  }
+}
+
 .decorated-zone {
   position: relative;
 }
@@ -85,7 +91,6 @@
 
 @media (width >= 1024px) {
   .header__theme-menu {
-    align-self: start;
     justify-self: center;
   }
 }
@@ -162,6 +167,13 @@
   .header__tagline {
     width: 50%;
     margin-inline-start: auto;
+  }
+}
+
+@media (width >= 1024px) {
+  .header__tagline {
+    align-self: end;
+    margin-block-end: calc(134px - var(--padding));
   }
 }
 
