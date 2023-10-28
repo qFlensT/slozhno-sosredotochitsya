@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 @media (width >= 768px) {
   :root {
@@ -18,19 +25,25 @@
 }
 
 .page > *:not(:first-child) {
+  -webkit-margin-before: 40px;
   margin-block-start: 40px;
 }
 
 @media (width >= 768px) {
   .page > *:not(:first-child) {
+    -webkit-margin-before: 60px;
     margin-block-start: 60px;
   }
 }
 
 .header {
   position: relative;
+  display: -ms-grid;
   display: grid;
+  grid-auto-rows: 1fr -webkit-min-content 1fr;
   grid-auto-rows: 1fr min-content 1fr;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding: var(--padding);
   block-size: 100vb;
@@ -38,6 +51,8 @@
 
 @media (width >= 1024px) {
   .header {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: start;
   }
 }
@@ -51,7 +66,9 @@
   --border: 1px solid var(--color-decoration);
   content: "";
   position: absolute;
+  -webkit-border-end: var(--border);
   border-inline-end: var(--border);
+  -webkit-border-before: var(--border);
   border-block-start: var(--border);
   inset-inline-end: var(--padding);
   inset-block-start: var(--padding);
@@ -61,6 +78,8 @@
 
 .decorated-zone::after {
   inset: unset;
+  -webkit-transform: scaleX(-1) scaleY(-1);
+  -ms-transform: scaleX(-1) scaleY(-1);
   transform: scaleX(-1) scaleY(-1);
   inset-inline-start: var(--padding);
   inset-block-end: var(--padding);
@@ -68,7 +87,11 @@
 
 .decorated-zone__details {
   position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: 10px;
   color: var(--color-decoration);
@@ -82,6 +105,7 @@
   position: relative;
   display: inline-block;
   border-radius: 50%;
+  -webkit-box-shadow: 0px 0px 4px #ff0070;
   box-shadow: 0px 0px 4px #ff0070;
   background-color: var(--color-decoration);
   block-size: 9px;
@@ -90,19 +114,30 @@
 
 @media (width >= 1024px) {
   .header__theme-menu {
+    -ms-grid-column-align: center;
     justify-self: center;
   }
 }
 
 .header__theme-menu-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
   align-items: end;
   gap: 10px;
 }
 
 @media (width >= 1024px) {
   .header__theme-menu-list {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
   }
 }
@@ -119,6 +154,8 @@
   text-transform: lowercase;
   background-color: transparent;
   cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   block-size: 26px;
 }
@@ -128,6 +165,7 @@
 }
 
 .header__theme-menu-button:focus-visible {
+  -webkit-border-after: 1px solid var(--color-decoration);
   border-block-end: 1px solid var(--color-decoration);
   outline: none;
 }
@@ -149,6 +187,8 @@
 @media (width >= 768px) {
   .header__title {
     font-size: var(--text-size-title);
+    -webkit-transform: translateX(calc(0px - var(--padding)));
+    -ms-transform: translateX(calc(0px - var(--padding)));
     transform: translateX(calc(0px - var(--padding)));
   }
 }
@@ -171,19 +211,28 @@
 @media (width >= 768px) {
   .header__tagline {
     width: 50%;
+    -webkit-margin-start: auto;
     margin-inline-start: auto;
   }
 }
 
 @media (width >= 1024px) {
   .header__tagline {
+    -ms-flex-item-align: end;
+    -ms-grid-row-align: end;
     align-self: end;
+    -webkit-margin-after: calc(134px - var(--padding));
     margin-block-end: calc(134px - var(--padding));
   }
 }
 
 .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 50px;
   padding: 0 var(--padding);
@@ -196,6 +245,7 @@
 }
 
 .section {
+  display: -ms-grid;
   display: grid;
   gap: 20px;
 }
@@ -221,6 +271,7 @@
 }
 
 .card__list {
+  display: -ms-grid;
   display: grid;
   gap: 20px;
 }
@@ -233,7 +284,12 @@
 }
 
 .card__list-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 10px;
 }
@@ -249,6 +305,7 @@
 }
 
 .link:hover {
+  -webkit-border-after: 1px solid var(--color-secondary);
   border-block-end: 1px solid var(--color-secondary);
 }
 
@@ -259,11 +316,15 @@
 
 @media (width >= 768px) {
   .section__compact {
+    -ms-grid-columns: 1fr 2fr;
     grid-template-columns: 1fr 2fr;
+    grid-auto-rows: -webkit-min-content auto;
     grid-auto-rows: min-content auto;
   }
   .section__compact .card__list {
+    -ms-grid-column-span: 2;
     grid-column: span 2;
+    -ms-grid-row: 2;
     grid-row-start: 2;
   }
 }
@@ -283,12 +344,14 @@
 }
 
 .gallery {
+  display: -ms-grid;
   display: grid;
   gap: 10px;
 }
 
 @media (width >= 768px) {
   .gallery {
+    -ms-grid-columns: 1fr 20px 1fr 20px 1fr;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
@@ -304,31 +367,43 @@
 
 @media (width >= 768px) {
   .section__image {
+    -o-object-fit: cover;
     object-fit: cover;
+    -o-object-position: center;
     object-position: center;
     block-size: 100%;
   }
 
   .image__sunset {
+    -ms-grid-column-span: 2;
     grid-column: span 2;
   }
 
   .image__ice-cream {
+    -ms-grid-row-span: 2;
     grid-row: span 2;
   }
 
   .image__tape {
+    -ms-grid-row-span: 2;
     grid-row: span 2;
   }
 
   .image__street {
+    -ms-grid-column-span: 2;
     grid-column: span 2;
   }
 }
 
 .footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   block-size: 100vb;
 }
