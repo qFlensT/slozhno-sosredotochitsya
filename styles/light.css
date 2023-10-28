@@ -9,14 +9,18 @@
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
   */
-  --primary-color: #fff1f7;
-  --secondary-color: #353430;
-  --accent-color: #ff8dcb;
-  --title-color: #ffc2e6;
-  --text-color: #353430;
-  --hover-color: #32312d66;
-  --decoration-color: #353430;
-  --header-bg-img: url("../images/cover-image-light.png");
+  --color-primary: #fff1f7;
+  --color-secondary: #353430;
+  --color-accent: #ff8dcb;
+  --color-title: #ffc2e6;
+  --color-subtitle: #353430;
+  --color-decoration: #353430;
+  --color-hover: #32312d66;
+
+  --shadow-title: 4px 4px 0px #ff0070;
+  --shadow-title-mobile: 4px 4px 0px var(--color-accent);
+
+  --image-background: url("../images/cover-image-light.png");
 
   .decorated-zone__details {
     display: none;
@@ -26,14 +30,18 @@
 @media (prefers-color-scheme: light) {
   :root {
     /* Дублируем переменные светлой темы */
-    --primary-color: #fff1f7;
-    --secondary-color: #353430;
-    --accent-color: #ff8dcb;
-    --title-color: #ffc2e6;
-    --text-color: #353430;
-    --hover-color: #32312d66;
-    --decoration-color: #353430;
-    --header-bg-img: url("../images/cover-image-light.png");
+    --color-primary: #fff1f7;
+    --color-secondary: #353430;
+    --color-accent: #ff8dcb;
+    --color-title: #ffc2e6;
+    --color-subtitle: #353430;
+    --color-decoration: #353430;
+    --color-hover: #32312d66;
+
+    --shadow-title: 4px 4px 0px #ff0070;
+    --shadow-title-mobile: 4px 4px 0px var(--color-accent);
+
+    --image-background: url("../images/cover-image-light.png");
   }
 
   .decorated-zone__details {
